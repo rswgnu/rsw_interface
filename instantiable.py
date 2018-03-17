@@ -26,6 +26,7 @@ from interface import *
 ## Interfaces
 ## ------------------------------------------------------------------------
 
+# Comparable
 class Comparable(Interface):
     """
     Interface for instances which are less-than, equal-to or greater-than each other.

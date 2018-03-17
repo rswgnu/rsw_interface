@@ -1,4 +1,4 @@
-# README.md:  RSW Interface - interface conformance for Python
+# RSW Interface - interface conformance for Python
 
 ## AUTHOR:       Robert Weiner
 
@@ -11,7 +11,8 @@
 This package helps Python scale to large multi-party implementations
 where contractual enforcement of public interface specifications is
 critical to both the development and quality assurance cycles.  It is
-also an exercise in strong documentation and error reporting techniques.
+also an exercise in strong documentation and error reporting
+techniques.
 
 The original package predates the addition of Abstract Base Classes
 to Python and still contains features not provided therein.  The core
@@ -24,24 +25,24 @@ a common abstract pattern that is one aspect of a class, for example,
 a Python List would conform to the Ordered and Indexable interfaces.
 
 Interfaces are built using standard Python classes.  All
-interfaces inherit from the top-level `Interface' class.
+interfaces inherit from the top-level `Interface` class.
 
-An interface `i2' ``extends'' another interface `i1' iff `i2' inherits
-from `i1'.
+An interface `i2` *extends* another interface `i1` iff `i2` inherits
+from `i1`.
 
-A class ``implements'' an interface (and thus conforms to it) iff:
+A class *implements* an interface (and thus conforms to it) iff:
 
-       it inherits from the interface;
+  1. it inherits from the interface;
 
-       it or its ancestors redefine/implement all of the stub or body
-       methods declared by the interface, keeping the number of
-       arguments per method the same and renaming the first arg of
-       each stub method from `iself' to `self';
+  2. it or its ancestors redefine/implement all of the stub or body
+     methods declared by the interface, keeping the number of
+     arguments per method the same and renaming the first arg of
+     each stub method from `iself` to `self`;
       
-       and its definition is followed by a call to:<br>
-          assert_implements(aClass)<br>
-       this marks the class as a non-interface and confirms that it
-       does in fact implement the interfaces from which it inherits.
+  3. and its definition is followed by a call to:
+       assert_implements(aClass)
+     this marks the class as a non-interface and confirms that it
+     does in fact implement the interfaces from which it inherits.
 
 Interfaces are implemented using standard Python classes but have at
 least one method that is not implemented (stub method); each interface
@@ -49,16 +50,16 @@ stub method may have a doc string as well as pre- and post-condition
 assertions.  An attempt to instantiate an interface triggers an error.
 
 A stub method is distinguished from other methods by naming its first
-argument, `iself', short for "interface self".  Each stub method
+argument, `iself`, short for *interface self*.  Each stub method
 exists to provide a calling protocol to which any implementor must
 conform.  The implementor may either overload the stub method,
 replacing it completely or more commonly may overload its "body
 method", keeping the stub method's signature, doc string and pre- and
 post-conditions.  Body method names are computed from the interface
-stub method name by adding a ``_body'' to the name:
+stub method name by adding a `_body` to the name:
 
-          stub      =>     stub_body<br>
-        __stub      =>   __stub_body<br>
+          stub      =>     stub_body
+        __stub      =>   __stub_body
         __stub__    =>   __stub_body__
 
 At the start of each interface definition, each stub body within the
@@ -71,7 +72,7 @@ The "interface.py" module supplies the full mechanics for interfaces.
 The following are public functions defined in this module, not
 methods.  (They are functions since many must work on objects of any
 type; the ones that take operands of more specific types, such as
-`extends' are functions so that they may be called similarly; type
+`extends` are functions so that they may be called similarly; type
 checks ensure that they raise exceptions if called with an invalid
 argument).
 
@@ -132,12 +133,13 @@ argument).
 
 ## SAMPLES
 
-Four sample interfaces are provided:
+Five sample interfaces are provided:
 
-    * GetSet - Interface for overloading get, set and del operations of attributes
-    * Comparable - Interface for instances which are less-than, equal-to or greater-than each other
-    * Hashable - Interface for instances which generate a hash code for use in dictionaries
-    * Instantiable - Standard interface of overloadable instance methods to which most classes should conform
+    1. [Callable](callable.py) - Interface to make instances callable as functions
+    2. [Comparable](instantiable.py#Comparable) - Interface for instances which are less-than, equal-to or greater-than each other
+    3. [GetSet](getset.py) - Interface for overloading get, set and del operations of attributes
+    4. [Hashable](instantiable.py) - Interface for instances which generate a hash code for use in dictionaries
+    5. [Instantiable](instantiable.py) - Standard interface of overloadable instance methods to which most classes should conform
 
 
 ## TESTING
