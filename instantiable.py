@@ -52,6 +52,7 @@ class Comparable(Interface):
         __rcmp_body__(iself, other)
 
 
+# Hashable
 class Hashable(Comparable):
     """
     Interface for instances which generate a hash code for use in dictionaries.
@@ -85,7 +86,7 @@ class Hashable(Comparable):
         """
         __hash_body__(iself)
 
-
+# Instantiable
 class Instantiable(Interface):
     """
     Standard interface of overloadable instance methods to which most classes should conform.

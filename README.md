@@ -135,11 +135,11 @@ argument).
 
 Five sample interfaces are provided:
 
-    1. [Callable](callable.py) - Interface to make instances callable as functions
-    2. [Comparable](instantiable.py#Comparable) - Interface for instances which are less-than, equal-to or greater-than each other
-    3. [GetSet](getset.py) - Interface for overloading get, set and del operations of attributes
-    4. [Hashable](instantiable.py) - Interface for instances which generate a hash code for use in dictionaries
-    5. [Instantiable](instantiable.py) - Standard interface of overloadable instance methods to which most classes should conform
+  1. [Callable](callable.py) - Interface to make instances callable as functions
+  2. [Comparable](instantiable.py#Comparable) - Interface for instances which are less-than, equal-to or greater-than each other
+  3. [GetSet](getset.py) - Interface for overloading get, set and del operations of attributes
+  4. [Hashable](instantiable.py#Hashable) - Interface for instances which generate a hash code for use in dictionaries
+  5. [Instantiable](instantiable.py#Instantiable) - Standard interface of overloadable instance methods to which most classes should conform
 
 
 ## TESTING
