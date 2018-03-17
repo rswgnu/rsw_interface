@@ -1,0 +1,5 @@
+README.md         Overview of the RSW Interface package
+callable.py:      Interface to make instances callable as functions
+getset.py:        Interface for overloading get, set and del operations of attributes
+instantiable.py:  Basic interfaces for most class instances
+interface.py:     Inheritable class interface/protocol support for Python; implements class `Interface' and conformance functions
